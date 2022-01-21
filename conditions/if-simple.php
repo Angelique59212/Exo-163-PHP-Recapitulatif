@@ -7,7 +7,7 @@ echo "CONDITIONS SIMPLES <br><br><br>";
 
 $animal = "Chat";
 echo "1.Est-ce un chat : ";
-if($animal == "Chat"){
+if($animal === "Chat"){
   //condition vraie
   echo "Oui";
 }else{
@@ -22,6 +22,12 @@ echo "<br><br>";
 $animal = "Chien";
 echo "2.Est-ce un chat : ";
 //mettre votre code ici
+if ($animal === "Chien") {
+    echo "non";
+}
+else {
+    echo "oui";
+}
 echo "<br><br>";
 
 //----------------------------------------
@@ -29,4 +35,10 @@ echo "<br><br>";
 $chat = true;
 echo "3.Est-ce un chat : ";
 //mettre votre code ici
+if ($animal === $chat) {
+    echo "oui";
+}
+else {
+    echo "non";
+}
 echo "<br><br>";
