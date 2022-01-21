@@ -118,17 +118,30 @@ echo '<br><br>';
 //Créer un tableau pour les mois de l'année et affiché tous les mois de Janvier à Décembre
 //modifier et/ou remplacer les éléments ci-dessous
 echo "8.Les mois depuis le debut de l'annee : <br>";
-$mois = [];
-for ($i = 0; $i < 0; $i) {
-    echo '';
+$month = [
+    "janvier",
+    "février",
+    "mars",
+    "avril",
+    "mai",
+    "juin",
+    "juillet",
+    "août",
+    "septembre",
+    "octobre",
+    "novembre",
+    "décembre",
+];
+for ($i = 0; $i < count($month); $i++) {
+    echo $month[$i] ."<br>";
 }
 echo '<br><br>';
 
 //Afficher les mois de la fin de l'année jusqu'au début de l'année
 //modifier et/ou remplacer les éléments ci-dessous
 echo "9.Les mois depuis la fin de l'annee : <br>";
-for ($i = 0; $i < 0; $i) {
-    echo '';
+for ($i = count($month)-1; $i >= 0; $i--) {
+    echo $month[$i] ."<br>";
 }
 echo '<br><br>';
 
@@ -158,6 +171,13 @@ $college = array(
 
 echo '10.Les eleves du college : <br>';
 //ajoutez votre code ici
+foreach ($college as $level => $student) {
+    echo '<br>'.$level . "<br>";
+    echo "<br><br>";
+    foreach ($student as $name => $username) {
+        echo implode(" ", $username).'<br>';
+    }
+}
 echo '<br><br>';
 
 //----------------------------------------
@@ -165,6 +185,38 @@ echo '<br><br>';
 //reprenez le tableau ci-dessus, ajoutez des éléves pour la classe de troisième et réaffichez tout
 echo '11.Les eleves du college (avec les nouveaux arrivants): <br>';
 //ajoutez votre code ici
+$college = array(
+    'Sixieme' => array(
+        array('Nom' => 'Payet', 'Prenom' => 'Mickael'),
+        array('Nom' => 'Hoareau', 'Prenom' => 'Christine'),
+        array('Nom' => 'Maillot', 'Prenom' => 'Laure'),
+    ),
+    'Cinquieme' => array(
+        array('Nom' => 'Bourdon', 'Prenom' => 'Didier'),
+        array('Nom' => 'Legitimus', 'Prenom' => 'Pascal'),
+        array('Nom' => 'Campan', 'Prenom' => 'Bernard'),
+        array('Nom' => 'Fois', 'Prenom' => 'Marina'),
+        array('Nom' => 'Floresti', 'Prenom' => 'Florence'),
+    ),
+    'Quatrieme' => array(
+        array('Nom' => 'Willis', 'Prenom' => 'Bruce'),
+        array('Nom' => 'Lawrence', 'Prenom' => 'Laurence'),
+        array('Nom' => 'Johannson', 'Prenom' => 'Scarlett'),
+        array('Nom' => 'Jackson', 'Prenom' => 'Samuel'),
+    ),
+    'Troisième' => array(
+        array('Nom' => "Louane", 'Prenom' => 'Laurent'),
+        array('Nom' => "Luka", 'Prenom' => 'Laurent'),
+        array('Nom' => "Titi", 'Prenom' => 'Laurent'),
+    )
+);
+foreach ($college as $level => $student) {
+    echo '<br>'.$level . "<br>";
+    echo "<br><br>";
+    foreach ($student as $name => $username) {
+        echo implode(" ", $username).'<br>';
+    }
+}
 echo '<br><br>';
 
 //----------------------------------------
@@ -205,7 +257,13 @@ $videotheque = array(
 );
 
 echo '12.Mes films : <br>';
-//ajoutez votre code ici
+foreach ($videotheque as $movies) {
+    echo "<br>".$movies['nom'] . " ". $movies['date'] . " " . $movies["realisateur"] . " "  . "<br>";
+    echo "<br>";
+    foreach ($movies['acteurs'] as $actor) {
+        echo $actor . "<br>";
+    }
+}
 echo '<br><br>';
 
 //----------------------------------------
@@ -216,4 +274,52 @@ echo '<br><br>';
 
 echo '13.Mes films : <br>';
 //ajoutez votre code ici
+$videotheque = array(
+    array(
+        'nom' => 'La ligne verte',
+        'date' => 2000,
+        'realisateur' => 'Frank Darabont',
+        'acteurs' => array(
+            'Tom Hanks',
+            'Michael Duncan',
+            'David Morse',
+        ),
+        'synopsis' => "Paul Edgecomb, pensionnaire centenaire d'une maison de retraite, est hanté par ses souvenirs. 
+         Gardien-chef du pénitencier de Cold Mountain en 1935, il était chargé de veiller au bon déroulement des
+         exécutions capitales en s’efforçant d'adoucir les derniers moments des condamnés. ",
+    ),
+    array(
+        'nom' => 'Le pari',
+        'date' => 1997,
+        'realisateur' => 'Didier Bourdon',
+        'acteurs' => array(
+            'Didier Bourdon',
+            'Bernard Campan',
+            'Roger Ilbanez',
+        ),
+        'synopsis' => "Bernard est professeur dans une banlieue et vit avec Victoria. Didier est un riche pharmacien du 
+         XIXe arrondissement de Paris, marié à Murielle, la soeur de Victoria. Tout oppose les deux beaux-freres et 
+         ils se détestent.",
+    ),
+    array(
+        'nom' => 'Spider-Man',
+        'date' => 2021,
+        'realisateur' => 'Jon Watts',
+        'acteurs' => array(
+            'Tom Holland',
+            'Zendaya',
+        ),
+        'synopsis' => "Pour la première fois dans son histoire cinématographique, Spider-Man, le héros sympa du 
+         quartier est démasqué et ne peut désormais plus séparer sa vie normale de ses lourdes responsabilités de 
+         super-héros. Quand il demande de l'aide à Doctor Strange, les enjeux deviennent encore plus dangereux, 
+         le forçant à découvrir ce qu'être Spider-Man signifie véritablement.",
+    ),
+);
+foreach ($videotheque as $movies) {
+    echo "<br>".$movies['nom'] . " ". $movies['date'] . " " . $movies["realisateur"] . " "  . "<br>";
+    echo "<br>";
+    foreach ($movies['acteurs'] as $actor) {
+        echo $actor . "<br>";
+    }
+}
 echo '<br><br>';
